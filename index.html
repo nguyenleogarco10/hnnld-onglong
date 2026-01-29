@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Thư mời HNNLĐ PXNK- Ông Bạch Thăng Long</title> 
+    <title>Thư mời Lễ ký kết Giao ước PXNK - Bà Nguyễn Thị Phương Thảo</title> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -223,7 +223,7 @@
             transform: translate3d(-50%, -50%, 10px) scale(0);
         }
 
-        /* --- STYLE CHO CARD --- */
+        /* --- STYLE CHO CARD (ĐÃ SỬA ĐỂ KHÔNG BỊ CROP ẢNH) --- */
         .card {
             position: absolute;
             width: 100%;
@@ -231,9 +231,13 @@
             top: 0;
             left: 0;
             background-color: #fff;
-            background-size: cover; 
+            
+            /* SỬA ĐỔI QUAN TRỌNG: CONTAIN */
+            /* Dùng contain để ảnh luôn hiển thị trọn vẹn trong khung */
+            background-size: contain; 
             background-position: center;
             background-repeat: no-repeat;
+            
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.1);
             overflow: visible; 
@@ -260,20 +264,27 @@
         /* --- TRẠNG THÁI MỞ --- */
         .envelope-wrapper.open .lid { transform: rotateX(180deg); z-index: 1; }
         
+        /* ĐIỀU CHỈNH LẠI KÍCH THƯỚC KHUNG HIỂN THỊ KHI MỞ */
         .envelope-wrapper.open .letters-stack {
-            width: 90vw; 
-            height: 80vh; 
-            max-width: 500px;
-            aspect-ratio: unset; 
+            width: 90vw;
+            
+            /* Dùng aspect-ratio để giữ form thiệp đẹp, không bị kéo quá dài */
+            aspect-ratio: 5/7; /* Tỷ lệ chuẩn thiệp dọc */
+            
+            /* Giới hạn chiều cao để không vượt quá màn hình điện thoại */
+            max-height: 75vh;
+            height: auto; 
+            
             bottom: 50%; 
             transform: translate3d(-50%, 40%, 20px); 
             z-index: 100;
         }
 
+        /* Tinh chỉnh cho màn hình dài hoặc tablet */
         @media (min-width: 768px) {
             .envelope-wrapper.open .letters-stack {
-                height: 80vh;
                 width: auto;
+                height: 80vh;
                 aspect-ratio: 600/848;
             }
         }
@@ -629,5 +640,4 @@
         animate();
     </script>
 </body>
-
 </html>
